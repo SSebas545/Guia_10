@@ -1,0 +1,20 @@
+#include <stdio.h>
+int main()
+{
+        int numeros[7], mayor, posicion;
+        for (int i = 0; i < 7; i++) {
+                printf("Ingrese un numero entero positivo: ");
+                scanf("%d", &numeros[i]);
+                if (i == 0 || numeros[i] > mayor) {
+                        mayor = numeros[i];
+                        posicion = i;
+                }
+        }
+        printf("El numero mayor es: %d y se encuentra en la posicion: %d\n", mayor, posicion);
+        printf("El vector completo es: ");
+        for (int i = 0; i < 7; i++) {
+                printf("%d ", numeros[i]);
+        }
+        printf("\n");
+        return 0;
+}

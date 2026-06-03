@@ -1,0 +1,34 @@
+#include <stdio.h>
+int main()
+{
+int pares[20], impares[20], num, cont1, cont2;
+do
+{
+    printf("Ingrese un numero entero (0 para finalizar): ");
+    scanf("%d", &num);
+    if(num != 0)
+    {
+        if(num % 2 == 0)
+        {
+            pares[cont1] = num;
+            cont1++;
+        }
+        else
+        {
+            impares[cont2] = num;
+            cont2++;
+        }
+    }
+}
+while(num != 0 && (cont1 < 20 || cont2 < 20));
+printf("Numeros pares: ");
+for (int k = 0; k < cont1; k++) {
+    printf("%d ", pares[k]);
+}
+printf("\n");
+printf("Numeros impares: ");
+for (int k = 0; k < cont2; k++) {
+    printf("%d ", impares[k]);
+}
+return 0;
+}

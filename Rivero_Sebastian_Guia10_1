@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() 
+{
+    int vector[6];
+    int *papelito;
+    for (int i = 0; i < 6; i++) {
+        printf("Ingrese un número entero para la caja %d: ", i + 1);
+        scanf("%d", &vector[i]);
+    }
+
+    printf("\nValores guardados en las cajas:\n");
+    for (int i = 0; i < 6; i++) {
+        printf("Caja %d: %d\n", i + 1, vector[i]);
+    }
+    papelito = &vector[0]; 
+    printf("\nLa dirección de memoria de la primera caja es: %p\n", papelito);
+
+    return 0;
+}

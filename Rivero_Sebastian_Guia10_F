@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+int main() 
+{
+    int vector[10];
+    int max, min;
+    int contMax = 0, contMin = 0;
+
+    printf("Ingrese 10 numeros enteros:\n");
+    for (int i = 0; i < 10; i++) {
+        printf("Elemento %d: ", i + 1);
+        scanf("%d", &vector[i]);
+    }
+
+    max = vector[0];
+    min = vector[0];
+
+    for (int i = 1; i < 10; i++) {
+        if (vector[i] > max) {
+            max = vector[i];
+        }
+        if (vector[i] < min) {
+            min = vector[i];
+        }
+    }
+
+    for (int i = 0; i < 10; i++) {
+        if (vector[i] == max) {
+            contMax++;
+        }
+        if (vector[i] == min) {
+            contMin++;
+        }
+    }
+
+    printf("Valor maximo: %d, Ocurrencias: %d\n", max, contMax);
+    printf("Valor minimo: %d, Ocurrencias: %d\n", min, contMin);
+
+    return 0;
+}

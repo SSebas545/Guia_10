@@ -1,0 +1,32 @@
+#include <stdio.h>
+int main()
+{
+        int numeros[8], num1, num2, cont1, cont2, i;
+        printf("Ingrese 8 numeros enteros:\n");
+        for (i = 0; i < 8; i++) {
+                scanf("%d", &numeros[i]);
+        }
+        printf("Ingrese dos numeros adicionales:\n");
+        scanf("%d %d", &num1, &num2);
+        for (i = 0; i < 8; i++) {
+                if (numeros[i] == num1) {
+                        cont1++;
+                        printf("El numero %d pertenece a la secuencia y se encuentra en la posicion %d\n", num1, i);
+                }
+                if (numeros[i] == num2) {
+                        cont2++;
+                        printf("El numero %d pertenece a la secuencia y se encuentra en la posicion %d\n", num2, i);
+                }
+        }
+        if (cont1 > 0) {
+                printf("El numero %d se repite %d veces en la secuencia.\n", num1, cont1);
+        } else {
+                printf("El numero %d no pertenece a la secuencia.\n", num1);
+        }
+        if (cont2 > 0) {
+                printf("El numero %d se repite %d veces en la secuencia.\n", num2, cont2);
+        } else {
+                printf("El numero %d no pertenece a la secuencia.\n", num2);
+        }
+        return 0;
+}

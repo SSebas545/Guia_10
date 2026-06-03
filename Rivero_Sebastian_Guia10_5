@@ -1,0 +1,37 @@
+#include <stdio.h>
+
+int main() 
+{
+
+    float tiempos[10];
+    float suma = 0;
+
+    printf("Ingrese los tiempos en segundos de 10 corredores:\n");
+    for (int i = 0; i < 10; ++i) {
+        printf("Corredor %d: ", i+1);
+        if (scanf("%f", &tiempos[i]) != 1) {
+            printf("Entrada no válida.\n");
+            return 1;
+        }
+        if (tiempos[i] < 0) {
+            printf("El tiempo no puede ser negativo.\n");
+            return 1;
+        }
+        suma += tiempos[i];
+    }
+
+    float menor = tiempos[0];
+    float mayor = tiempos[0];
+    for (int i = 1; i < 10; ++i) {
+        if (tiempos[i] < menor) menor = tiempos[i];
+        if (tiempos[i] > mayor) mayor = tiempos[i];
+    }
+
+    float promedio = suma / 10;
+
+    printf("\nTiempo del ganador: %.2f segundos\n", menor);
+    printf("Tiempo del último: %.2f segundos\n", mayor);
+    printf("Promedio general de los tiempos: %.2f segundos\n", promedio);
+
+    return 0;
+}

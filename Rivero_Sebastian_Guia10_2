@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() 
+{
+    int compras[7];
+    int total = 0, mas_cara = 0;
+    int papelito;
+
+    for (int i = 0; i < 7; i++) {
+        printf("Ingrese el costo de la compra %d: ", i + 1);
+        scanf("%d", &compras[i]);
+        total += compras[i]; 
+
+        if (compras[i] > mas_cara) {
+            mas_cara = compras[i];
+            papelito = i; 
+        }
+    }
+
+    printf("\nLa compra más alta fue: %d\n", mas_cara);
+    printf("Se realizó en la compra número: %d\n", papelito + 1);
+    printf("El dinero total gastado en el día fue: %d\n", total);
+
+    return 0;
+}

@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main() 
+{
+    char texto[100];
+    int esPalindromo = 1, longitud, i; 
+
+    printf("Ingrese un texto: ");
+    fgets(texto, sizeof(texto), stdin);
+
+    texto[strcspn(texto, "\n")] = '\0';
+    
+    longitud = strlen(texto);
+    for (i = 0; i < longitud / 2; i++) {
+        if (texto[i] != texto[longitud - i - 1]) {
+            esPalindromo = 0; 
+            break;
+        }
+    }
+    
+    if (esPalindromo) {
+        printf("El texto es un palíndromo.\n");
+    } else {
+        printf("El texto no es un palíndromo.\n");
+    }
+    
+    return 0;
+}

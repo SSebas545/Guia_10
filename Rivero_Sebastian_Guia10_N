@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main()
+{
+        char apellidos[3][20];
+        float notas[3][5];
+        float promedios[3];
+        float promedio_curso = 0;
+        
+        for (int i = 0; i < 3; i++) {
+                printf("Ingrese el apellido del alumno %d: ", i + 1);
+                scanf("%s", apellidos[i]);
+        
+                if (apellidos[i][0] >= 'a' && apellidos[i][0] <= 'z') {
+                apellidos[i][0] = apellidos[i][0] - ('a' - 'A');
+                }
+        
+                printf("Ingrese las notas de 5 materias para el alumno %d:\n", i + 1);
+                for (int j = 0; j < 5; j++) {
+                printf("Materia %d: ", j + 1);
+                scanf("%f", &notas[i][j]);
+                promedios[i] += notas[i][j];
+                }
+                promedios[i] /= 5; 
+                promedio_curso += promedios[i];
+        }
+        
+        promedio_curso /= 3; 
+        
+        for (int i = 0; i < 3; i++) {
+                printf("El promedio de %s es: %.2f\n", apellidos[i], promedios[i]);
+        }
+        printf("El promedio del curso es: %.2f\n", promedio_curso);
+        
+        return 0;
+}

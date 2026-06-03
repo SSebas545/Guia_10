@@ -1,0 +1,58 @@
+#include <stdio.h>
+
+int main()
+{
+    int numeros[8];
+    int positivos[8];
+    int negativos[8];
+    int contPos = 0;
+    int contNeg = 0;
+
+    printf("Ingrese 8 números enteros (distintos de cero):\n");
+    for (int i = 0; i < 8; i++) {
+        scanf("%d", &numeros[i]);
+        if (numeros[i] > 0) {
+            positivos[contPos++] = numeros[i];
+        } else if (numeros[i] < 0) {
+            negativos[contNeg++] = numeros[i];
+        }
+    }
+
+    printf("Números ingresados:\n");
+    for (int i = 0; i < 8; i++) {
+        printf("%d ", numeros[i]);
+    }
+    printf("\n");
+
+
+    for (int i = 0; i < contPos - 1; i++) {
+        for (int j = 0; j < contPos - i - 1; j++) {
+            if (positivos[j] < positivos[j + 1]) {
+                int temp = positivos[j];
+                positivos[j] = positivos[j + 1];
+                positivos[j + 1] = temp;
+            }
+        }
+    }
+    for (int i = 0; i < contNeg - 1; i++) {
+        for (int j = 0; j < contNeg - i - 1; j++) {
+            if (negativos[j] > negativos[j + 1]) {
+                int temp = negativos[j];
+                negativos[j] = negativos[j + 1];
+                negativos[j + 1] = temp;
+            }
+        }
+    }
+
+    printf("Positivos ordenados en forma decreciente:\n");
+    for (int i = 0; i < contPos; i++) {
+        printf("%d ", positivos[i]);
+    }
+    printf("\n");
+
+    printf("Negativos ordenados en forma creciente:\n");
+    for (int i = 0; i < contNeg; i++) {
+        printf("%d ", negativos[i]);
+    }
+return 0;
+}

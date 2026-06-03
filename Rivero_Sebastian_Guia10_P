@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main()
+{
+        char nombre[3][20];
+        char fechaIngreso[3][11];
+        float sueldo[3];
+        int i, Antiguo = 0;
+        
+        for (i = 0; i < 3; i++) {
+                printf("Ingrese el nombre del empleado %d: ", i + 1);
+                fgets(nombre[i], sizeof(nombre[i]), stdin);
+                nombre[i][strcspn(nombre[i], "\n")] = '\0';         
+                printf("Ingrese la fecha de ingreso del empleado %d (dd/mm/yyyy): ", i + 1);
+                fgets(fechaIngreso[i], sizeof(fechaIngreso[i]), stdin);
+                fechaIngreso[i][strcspn(fechaIngreso[i], "\n")] = '\0'; 
+        
+                printf("Ingrese el sueldo del empleado %d: ", i + 1);
+                scanf("%f", &sueldo[i]);
+                getchar(); 
+        }
+        
+        for (i = 1; i < 3; i++) {
+                if (strcmp(fechaIngreso[i], fechaIngreso[Antiguo]) < 0) {
+                Antiguo = i;
+                }
+        }
+        
+        printf("El empleado más antiguo es: %s con un sueldo de %.2f\n", nombre[Antiguo], sueldo[Antiguo]);
+        
+        return 0;
+}

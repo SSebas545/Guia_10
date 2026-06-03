@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+int main()
+{
+    int lista[8] = {10, 20, 30, 40, 50, 60, 70, 80};
+    int nuevo, i, encontrado = 0, repeticiones = 0;
+    int posiciones[8];
+    printf("Ingrese un número nuevo: ");
+    scanf("%d", &nuevo);
+
+    for (i = 0; i < 8; i++) {
+        if (lista[i] == nuevo) {
+            encontrado = 1;
+            repeticiones++;
+            posiciones[repeticiones - 1] = i; 
+        }
+    }
+
+    if (encontrado) {
+        printf("El número %d forma parte de la lista.\n", nuevo);
+        printf("Se encuentra repetido %d veces.\n", repeticiones);
+        printf("Está en las posiciones: ");
+        for (i = 0; i < repeticiones; i++) {
+            printf("%d ", posiciones[i]);
+        }
+    } else {
+        printf("El número %d no forma parte de la lista.\n", nuevo);
+    }
+
+    return 0;
+}
+

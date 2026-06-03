@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+Diseña un programa que reciba una cadena de caracteres y la invierte.
+
+int main() 
+{
+    char cadena[100], temp;
+    int i, j;
+
+    printf("Ingrese una cadena de caracteres: ");
+    fgets(cadena, sizeof(cadena), stdin);
+
+    cadena[strcspn(cadena, "\n")] = '\0';
+
+    j = strlen(cadena) - 1;
+    for (i = 0; i < j; i++, j--) {
+        temp = cadena[i];
+        cadena[i] = cadena[j];
+        cadena[j] = temp;
+    }
+
+    printf("Cadena invertida: %s\n", cadena);
+    return 0;
+}

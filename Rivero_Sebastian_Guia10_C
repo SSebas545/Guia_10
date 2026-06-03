@@ -1,0 +1,23 @@
+#include <stdio.h>
+int main()
+{
+float gastos[10], mayor = 0, total = 0;
+int i, compras;
+printf("Ingrese la cantidad de compras realizadas (maximo 10): ");
+scanf("%d", &compras);
+if (compras > 10) {
+    printf("El numero de compras no puede ser mayor a 10.\n");
+    return 1;  
+}
+for (i = 0; i < compras; i++) {
+    printf("Ingrese el gasto de la compra %d: ", i + 1);
+    scanf("%f", &gastos[i]);
+    total += gastos[i];
+    if (gastos[i] > mayor) {
+        mayor = gastos[i];
+    }
+}
+printf("El mayor gasto fue: %.2f\n", mayor);
+printf("El monto total de gastos fue: %.2f\n", total);
+return 0;
+}
